@@ -29,19 +29,15 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Activo</th>
-                            <th>Ultimo Inicio de Sesion</th>
+                            <th>CUI</th>
                             <th class="no-sort" style="width: 20%"></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($usuarios as $usuario)
                         <tr>
-                            <td> {{$usuario->name}} </td>
-                            <td> {{$usuario->email}} </td>
-                            <td> {!! ($usuario->activo) ? '<span class="badge badge-success">Si</span>':'<span class="badge badge-danger">No</span>' !!} </td>
-                            <td> {{$usuario->logged_at}} </td>
+                            <td> {{$usuario->nombre_completo}} </td>
+                            <td> {{$usuario->cui}} </td>
                             <td class="text-right">
                                 <a class="btn btn-primary btn-sm" href="{{route('dashboard.usuarios.show',$usuario->id)}}">
                                     <i class="fas fa-folder">
@@ -70,9 +66,7 @@
                     <tfoot>
                         <tr>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Activo</th>
-                            <th>Ultimo Inicio de Sesion</th>
+                            <th>CUI</th>
                             <th class="no-sort"  style="width: 20%"></th>
                         </tr>
                     </tfoot>

@@ -17,7 +17,11 @@ class Persona extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','activo','descripcion','logged_at'
+        'nombres',
+        'apellidos',
+        'email',
+        'password',
+        'logged_at'
     ];
 
     /**
@@ -36,7 +40,6 @@ class Persona extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'activo' => 'boolean'
     ];
 
     /**
@@ -47,5 +50,10 @@ class Persona extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function getNombreCompletoAttribute()
+    {
+        return $this->nombres . ' ' . $this->apellidos;
     }
 }

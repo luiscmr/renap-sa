@@ -23,7 +23,7 @@
                 <div class="row">
 
                     <div class="col-md-10">
-                        <h3 class="card-title">{{ $usuario->name }}</h3>
+                        <h3 class="card-title">{{ $usuario->nombre_completo }}</h3>
                     </div>
                     @can('Editar Usuarios')
                     <div class="col-md-2">
@@ -44,8 +44,8 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>Estado</td>
-                            <td> {!! ($usuario->activo) ? '<span class="badge badge-success">Si</span>':'<span class="badge badge-danger">No</span>' !!} </td>
+                            <td>CUI</td>
+                            <td> {{$usuario->cui}} </td>
                         </tr>
                         <tr>
                             <td>Email</td>
@@ -54,18 +54,6 @@
                         <tr>
                             <td>Creado</td>
                             <td> {{$usuario->created_at}} </td>
-                        </tr>
-                        <tr>
-                            <td>Ultimo Inicio de Sesion</td>
-                            <td> {{$usuario->logged_at}} </td>
-                        </tr>
-                        <tr>
-                            <td>Roles</td>
-                            <td> {{ implode( ', ',$usuario->getRoleNames()->toArray() )}} </td>
-                        </tr>
-                        <tr>
-                            <td>Permisos</td>
-                            <td> {{ implode( ', ',$usuario->getPermissionNames()->toArray() )}} </td>
                         </tr>
                     </tbody>
                 </table>

@@ -29,8 +29,8 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                => 'required',
-            'email'                 => 'required|email|unique:users,email,' . $this->id,
+            'nombres'                => 'required',
+            'apellidos'              => 'required',
             'password'              => [
                 'nullable',
                 'confirmed',
@@ -40,8 +40,6 @@ class UserUpdateRequest extends FormRequest
                 'nullable',
                 'same:password',
             ],
-            'activo'                => 'nullable',
-            'rol'                   => 'nullable',
         ];
     }
 
