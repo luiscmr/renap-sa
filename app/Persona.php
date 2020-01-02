@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Usuarios\Entities;
+namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,14 +16,26 @@ class Persona extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'Persona';
+    protected $primaryKey = 'idPersona';
     protected $fillable = [
+        'fecha_nacimiento',
         'nombres',
         'apellidos',
         'email',
         'password',
-        'logged_at'
+        'genero',
+        'lugar_nacimiento',
+        'difunto',
+        'fecha_defuncion',
+        'DPI_cui',
+        'estado_civil_id',
+        'municipio_id',
+        'Persona_idPersona',
+        'Persona_idPersona1',
     ];
 
+    public $timestamps = false;
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -42,9 +54,6 @@ class Persona extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $dates = [
-        'fecha_nacimiento'
-    ];
     /**
      * Hash the password given
      *
